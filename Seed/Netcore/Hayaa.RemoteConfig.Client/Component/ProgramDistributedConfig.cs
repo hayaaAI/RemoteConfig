@@ -104,10 +104,9 @@ namespace Hayaa.ConfigSeed.Standard.Component
             {
                 localconfig = ReadLocal(seedConfig);
             }
-
             //远程拉取配置文件
             Console.WriteLine("Rpc拉取配置文件:" + seedConfig.SeedServerUrl);
-            var remoteConfig = GetRpcRemote(seedConfig.SeedServerUrl, seedConfig.AppConfigSolutionID, seedConfig.SecurityToken, seedConfig.Version.HasValue ? seedConfig.Version.Value : 0, seedConfig.AppID);
+            var remoteConfig = GetRpcRemote(seedConfig.SeedServerUrl, seedConfig.AppConfigSolutionID, seedConfig.SecurityToken, seedConfig.Version.HasValue ? seedConfig.Version.Value : 0, seedConfig.AppID);          
             //判断配置文件的新鲜程度
             if (remoteConfig != null)//无法获取远程配置时不更新本地
             {
@@ -246,7 +245,7 @@ namespace Hayaa.ConfigSeed.Standard.Component
                 }
                 else
                 {
-                    throw new Exception("无法获取远程配置错误:"+ response.ErrorMsg);
+                    throw new Exception("无法获取远程配置错误:"+((response==null)?"null":response.ErrorMsg));
                 }
             }
             catch (Exception ex)
