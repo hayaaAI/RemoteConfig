@@ -237,9 +237,11 @@ namespace Hayaa.ConfigSeed.Standard.Component
             try
             {
                 String guid = solutionID.ToString();
+                Console.WriteLine("SendConfig");
                 var response = remoteConfigService.SendConfig(guid, version);
-                if (response.ActionResult&&response.HavingData)
+                if ((response!=null)&&response.ActionResult&&response.HavingData)
                 {
+                    Console.WriteLine("SendConfig获取结果");
                     result = response.Data;
                 }
                 else
