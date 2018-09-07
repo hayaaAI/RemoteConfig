@@ -1,14 +1,15 @@
-//本地程序配置文件示范文件
-{
-  "SeedServerUrl": "#",
-  "LocalConfigDirectoryPath": "~/config",
-  "IsVirtualPath": true,
-  "SecurityToken": "",
-  "AppID": "1",
-  "AppInstanceID": 0,
-  "AppConfigSolutionID": "600e4dcf-f426-4624-ab4f-4f55e81bbaf5",
-  "AppConfigFileName": "app.json",
-  "Version": null,
-  "IsRemote": false,
-  "IsRemoteConfigRoot": true
+﻿{
+  "seedServerUrl": "",
+  "localConfigDirectoryPath": "~/config",
+  "virtualPath": true,
+  "securityToken": "123456",
+  "appID": 5,
+  "appInstanceID": 1,
+  "appConfigSolutionID": "a35eef2e-2635-41f9-b60a-15dda4917875",
+  "version": null,
+  "remote": false,
+  "RemoteType": 2,
+  "appConfigFileName": "app.json",
+  "remoteConfigRoot": true,
+  "rpcRemoteServiceConfig": null
 }

@@ -1,5 +1,6 @@
 ﻿using Hayaa.BaseModel;
 using Hayaa.BaseModel.Model;
+using Hayaa.CompanyWebSecurity.Client;
 using Hayaa.RemoteConfig.Service;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -10,8 +11,9 @@ using System.Text;
 namespace Hayaa.RemoteConfigController
 {
     [Route("api/[controller]/[action]")]
-    //[UserAuthorityFilter]
-    public class AppConfigController: Controller
+    [ApiController]
+    [UserAuthorityFilter]
+    public class AppConfigController: ControllerBase
     {
         private IAppConfigService AppConfigService = new AppConfigServer();
         [HttpPost]

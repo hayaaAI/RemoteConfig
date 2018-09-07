@@ -7,7 +7,8 @@ using System;
 namespace Hayaa.RemoteConfigController
 {
     [Route("api/[controller]/[action]")]
-    public class ConfigController : Controller
+    [ApiController]
+    public class ConfigController : ControllerBase
     {
         private IRemoteConfigService service = new RemoteConfigServer();
         //[HttpPost]
@@ -25,13 +26,13 @@ namespace Hayaa.RemoteConfigController
         [HttpPost]
         [EnableCors("any")]
         [Desc("SendJsAppConfig", "获取js配置服务", "")]
-        public TransactionResult<AppConfig> SendJsAppConfig(String sid, int v)
+        public TransactionResult<String> SendJsAppConfig(String sid, int v)
         {
-            TransactionResult<AppConfig> result = new TransactionResult<AppConfig>();
+            TransactionResult<String> result = new TransactionResult<String>();
             var serviceResult = service.SendJsAppConfig(sid, v);
             if (serviceResult.ActionResult & serviceResult.HavingData)
             {
-                result.Data = serviceResult.Data;
+                result.Data = serviceResult.Data.ConfigContent;
             }
             return result;
         }
