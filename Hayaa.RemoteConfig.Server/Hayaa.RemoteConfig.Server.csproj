@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Hayaa.RPC.Server" Version="1.0.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Service\Hayaa.RemoteConfig.Service.Core\Hayaa.RemoteConfig.Service.Core.csproj" />
     <ProjectReference Include="..\Service\Hayaa.RemoteConfig.ServiceV2\Hayaa.RemoteConfig.ServiceV2.csproj" />
   </ItemGroup>
