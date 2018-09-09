@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hayaa.RemoteConfig.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +18,7 @@ namespace Hayaa.RemoteConfig.Site
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            AppSeed.Instance.InitConfig();
         }
 
         public IConfiguration Configuration { get; }

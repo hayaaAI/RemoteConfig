@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hayaa.RPC.Server" Version="1.0.0.6" />
+    <PackageReference Include="Hayaa.RPC.Server" Version="1.0.0.7" />
   </ItemGroup>
 
   <ItemGroup>
