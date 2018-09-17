@@ -12,6 +12,7 @@ namespace Hayaa.RemoteConfigController
     {
         private IRemoteConfigService service = new RemoteConfigServer();
         //[HttpPost]
+        //[HttpGet]
         //[Desc("SendConfig", "获取远程配置服务", "")]
         //public TransactionResult<AppConfig> SendConfig(String sid, int v)
         //{
@@ -24,6 +25,7 @@ namespace Hayaa.RemoteConfigController
         //    return result;
         //}
         [HttpPost]
+        [HttpGet]
         [EnableCors("any")]
         [Desc("SendJsAppConfig", "获取js配置服务", "")]
         public TransactionResult<String> SendJsAppConfig(String sid, int v)
