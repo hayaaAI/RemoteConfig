@@ -46,6 +46,13 @@ namespace Hayaa.RemoteConfig.Site
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
+            }
+           // app.UseHttpsRedirection();
+           // app.UseCookiePolicy();
             app.UseCors("any");
             app.UseMvc();
         }
