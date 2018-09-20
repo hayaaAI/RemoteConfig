@@ -2,6 +2,7 @@
 using Hayaa.BaseModel.Model;
 using Hayaa.RemoteConfig.Service;
 using Hayaa.RemoteService;
+using Hayaa.WorkerSecurity.Client;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,12 +12,14 @@ using System.Text;
 namespace Hayaa.RemoteConfigController
 {
     [Route("api/[controller]/[action]")]
+    [UserAuthorityFilter]
     public class AppConfigController: Controller
     {
         private AppConfigService AppConfigService = new AppConfigServer(); //PlatformServiceFactory.Instance.CreateService<AppConfigService>(AppRoot.GetDefaultAppUser());
         private AppService appService = new AppServer(); //PlatformServiceFactory.Instance.CreateService<AppService>(AppRoot.GetDefaultAppUser());
         [HttpPost]
         [EnableCors("any")]
+        [Desc("GetPager", "获取AppConfig分页列表", "根据appId获取AppConfig分页列表")]
         public TransactionResult<GridPager<AppConfig>> GetPager(int page, int size,int appId)
         {
             TransactionResult<GridPager<AppConfig>> result = new TransactionResult<GridPager<AppConfig>>();
@@ -39,6 +42,7 @@ namespace Hayaa.RemoteConfigController
         }
         [HttpPost]
         [EnableCors("any")]
+        [Desc("Get", "获取AppConfig", "根据主键获取数据")]
         public TransactionResult<AppConfig> Get(int id)
         {
             TransactionResult<AppConfig> result = new TransactionResult<AppConfig>();
@@ -56,6 +60,7 @@ namespace Hayaa.RemoteConfigController
         }
         [HttpPost]
         [EnableCors("any")]
+        [Desc("Add", "添加AppConfig", "")]
         public TransactionResult<AppConfig> Add(AppConfig info)
         {
             TransactionResult<AppConfig> result = new TransactionResult<AppConfig>();
@@ -75,6 +80,7 @@ namespace Hayaa.RemoteConfigController
         }
         [HttpPost]
         [EnableCors("any")]
+        [Desc("Edit", "更新AppConfig", "根据主键更新数据")]
         public TransactionResult<Boolean> Edit(AppConfig info)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
@@ -92,6 +98,7 @@ namespace Hayaa.RemoteConfigController
         }
         [HttpPost]
         [EnableCors("any")]
+        [Desc("Delete", "删除AppConfig", "根据主键删除数据")]
         public TransactionResult<Boolean> Delete(int id)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
@@ -109,6 +116,7 @@ namespace Hayaa.RemoteConfigController
         }
         [HttpPost]
         [EnableCors("any")]
+        [Desc("AddComponentConfig", "添加组件配置", "")]
         public TransactionResult<Boolean> AddComponentConfig(int appConfigId, int componentConfigId)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
@@ -125,8 +133,8 @@ namespace Hayaa.RemoteConfigController
             return result;
         }
         [HttpPost]
-
         [EnableCors("any")]
+        [Desc("RemoveComponentConfig", "移除组件配置", "")]
         public TransactionResult<Boolean> RemoveComponentConfig(int appConfigId, int componentConfigId)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
@@ -143,8 +151,8 @@ namespace Hayaa.RemoteConfigController
             return result;
         }
         [HttpPost]
-
         [EnableCors("any")]
+        [Desc("Remove10002ComponentConfig", "服务工厂移除组件配置", "")]
         public TransactionResult<Boolean> Remove10002ComponentConfig(int appConfigId)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();

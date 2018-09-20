@@ -1,97 +1,120 @@
 package Hayaa.ConfigSeed;
 
-import java.util.UUID;
 
-class AppLocalConfig {
-    private String SeedServerUrl;
-    private  String LocalConfigDirectoryPath;
-    private Boolean IsVirtualPath;
-    private String AppConfigSentinelUrl;
-    private String SecurityToken;
-    private Integer AppID;
-    private UUID AppConfigID;
-    private Integer Version;
-    private  Boolean IsRemote;
-    private String AppConfigFileName;
+import java.io.Serializable;
+
+public class AppLocalConfig implements Serializable {
+    private String seedServerUrl;
+    private String localConfigDirectoryPath;
+    private Boolean virtualPath;
+    private String appConfigSentinelUrl;
+    private String securityToken;
+    private Integer appID;
+    private Integer appInstanceID;
+    private String appConfigSolutionID;
+    private Boolean remoteConfigRoot;
+    private Integer version;
+    private Boolean remote;
+    private String appConfigFileName;
+
     public String getSeedServerUrl() {
-        return SeedServerUrl;
+        return seedServerUrl;
     }
 
     public void setSeedServerUrl(String seedServerUrl) {
-        SeedServerUrl = seedServerUrl;
+        this.seedServerUrl = seedServerUrl;
     }
 
     public String getLocalConfigDirectoryPath() {
-        return LocalConfigDirectoryPath;
+        return localConfigDirectoryPath;
     }
 
     public void setLocalConfigDirectoryPath(String localConfigDirectoryPath) {
-        LocalConfigDirectoryPath = localConfigDirectoryPath;
+        this.localConfigDirectoryPath = localConfigDirectoryPath;
     }
 
     public Boolean getVirtualPath() {
-        return IsVirtualPath;
+        return virtualPath;
     }
 
     public void setVirtualPath(Boolean virtualPath) {
-        IsVirtualPath = virtualPath;
+        this.virtualPath = virtualPath;
     }
 
     public String getAppConfigSentinelUrl() {
-        return AppConfigSentinelUrl;
+        return appConfigSentinelUrl;
     }
 
     public void setAppConfigSentinelUrl(String appConfigSentinelUrl) {
-        AppConfigSentinelUrl = appConfigSentinelUrl;
+        this.appConfigSentinelUrl = appConfigSentinelUrl;
     }
 
     public String getSecurityToken() {
-        return SecurityToken;
+        return securityToken;
     }
 
-    public void setSecurityToken(String transfersSecurityKey) {
-        SecurityToken = transfersSecurityKey;
+    public void setSecurityToken(String securityToken) {
+        this.securityToken = securityToken;
     }
 
     public Integer getAppID() {
-        return AppID;
+        return appID;
     }
 
     public void setAppID(Integer appID) {
-        AppID = appID;
+        this.appID = appID;
     }
 
-    public UUID getAppConfigID() {
-        return AppConfigID;
+    public Integer getAppInstanceID() {
+        return appInstanceID;
     }
 
-    public void setAppConfigID(UUID appConfigID) {
-        AppConfigID = appConfigID;
+    public void setAppInstanceID(Integer appInstanceID) {
+        this.appInstanceID = appInstanceID;
+    }
+
+    public String getAppConfigSolutionID() {
+        return appConfigSolutionID;
+    }
+
+    public void setAppConfigSolutionID(String appConfigSolutionID) {
+        this.appConfigSolutionID = appConfigSolutionID;
+    }
+
+    public Boolean getRemoteConfigRoot() {
+        return remoteConfigRoot;
+    }
+
+    public void setRemoteConfigRoot(Boolean remoteConfigRoot) {
+        this.remoteConfigRoot = remoteConfigRoot;
     }
 
     public Integer getVersion() {
-        return Version;
+        return version;
     }
 
     public void setVersion(Integer version) {
-        Version = version;
+        this.version = version;
     }
 
     public Boolean getRemote() {
-        return IsRemote;
+        return remote;
     }
 
     public void setRemote(Boolean remote) {
-        IsRemote = remote;
+        this.remote = remote;
     }
 
     public String getAppConfigFileName() {
-        return AppConfigFileName;
+        return appConfigFileName;
     }
 
     public void setAppConfigFileName(String appConfigFileName) {
-        AppConfigFileName = appConfigFileName;
+        this.appConfigFileName = appConfigFileName;
     }
+
+
+
 
 
 }

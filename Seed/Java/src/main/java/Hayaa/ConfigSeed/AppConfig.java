@@ -1,66 +1,78 @@
 package Hayaa.ConfigSeed;
 
+import hayaa.basemodel.model.BaseData;
+
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 
-class AppConfig {
-    private Integer ID;
+class AppConfig extends BaseData implements Serializable {
 
-    private UUID SolutionID;
+    private Integer appId;
+    private Integer appConfigId;
+    private String solutionID;
+    private String solutionName;
+    private String configContent;
+    private Integer version;
+    private List<ComponentConfig> components;
 
-    private String SolutionName;
-
-    private String ConfigContent;
-    private Integer Version;
-
-    private List<ComponentConfig> Components;
-    public int getID() {
-        return ID;
+    public Integer getAppId() {
+        return appId;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setAppId(Integer appId) {
+        this.appId = appId;
     }
 
-    public UUID getSolutionID() {
-        return SolutionID;
+    public Integer getAppConfigId() {
+        return appConfigId;
     }
 
-    public void setSolutionID(UUID solutionID) {
-        SolutionID = solutionID;
+    public void setAppConfigId(Integer appConfigId) {
+        this.appConfigId = appConfigId;
+    }
+
+    public String getSolutionID() {
+        return solutionID;
+    }
+
+    public void setSolutionID(String solutionID) {
+        this.solutionID = solutionID;
     }
 
     public String getSolutionName() {
-        return SolutionName;
+        return solutionName;
     }
 
     public void setSolutionName(String solutionName) {
-        SolutionName = solutionName;
+        this.solutionName = solutionName;
     }
 
     public String getConfigContent() {
-        return ConfigContent;
+        return configContent;
     }
 
     public void setConfigContent(String configContent) {
-        ConfigContent = configContent;
+        this.configContent = configContent;
     }
 
-    public int getVersion() {
-        return Version;
+    public Integer getVersion() {
+        return version;
     }
 
-    public void setVersion(int version) {
-        Version = version;
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     public List<ComponentConfig> getComponents() {
-        return Components;
+        return components;
     }
 
     public void setComponents(List<ComponentConfig> components) {
-        Components = components;
+        this.components = components;
     }
+
+
 
 
 

@@ -18,7 +18,7 @@ namespace Hayaa.RemoteService
         {
             get;
             set;
-        }
+        }                 
         /// <summary>
         /// AppId
         /// </summary>

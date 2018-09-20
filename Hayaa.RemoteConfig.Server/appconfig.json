@@ -1,0 +1,15 @@
+﻿{
+  "seedServerUrl": "",
+  "localConfigDirectoryPath": "~/config",
+  "virtualPath": true,
+  "securityToken": "123456",
+  "appID": 1,
+  "appInstanceID": 1,
+  "appConfigSolutionID": "a35eef2e-2635-41f9-b60a-15dda4917875",
+  "version": null,
+  "remote": false,
+  "RemoteType": 2,
+  "appConfigFileName": "app.json",
+  "remoteConfigRoot": true,
+  "rpcRemoteServiceConfig": null
+}

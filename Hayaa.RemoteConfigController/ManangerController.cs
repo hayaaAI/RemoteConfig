@@ -3,6 +3,7 @@ using Hayaa.BaseModel.Model;
 using Hayaa.RemoteConfig.Service;
 using Hayaa.RemoteService;
 using Hayaa.ServicePlatform.Client;
+using Hayaa.WorkerSecurity.Client;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,11 +13,13 @@ using System.Text;
 namespace Hayaa.RemoteConfigController
 {
     [Route("api/[controller]/[action]")]
+    [UserAuthorityFilter]
     public partial  class ManangerController: Controller
     {
         private AppService appService = new AppServer(); //PlatformServiceFactory.Instance.CreateService<AppService>(AppRoot.GetDefaultAppUser());
         [HttpPost]
         [EnableCors("any")]
+        [Desc("GetPager", "获取App分页列表", "")]
         public TransactionResult<GridPager<App>> GetAppPager(int page,int size)
         {
             TransactionResult<GridPager<App>> result = new TransactionResult<GridPager<App>>();
@@ -36,6 +39,7 @@ namespace Hayaa.RemoteConfigController
         }
         [HttpPost]
         [EnableCors("any")]
+        [Desc("Get", "获取App", "根据主键获取数据")]
         public TransactionResult<App> GetApp(int id)
         {
             TransactionResult<App> result = new TransactionResult<App>();
@@ -53,6 +57,7 @@ namespace Hayaa.RemoteConfigController
         }
         [HttpPost]
         [EnableCors("any")]
+        [Desc("AddApp", "添加App", "")]
         public TransactionResult<App> AddApp(App app)
         {
             TransactionResult<App> result = new TransactionResult<App>();
@@ -72,6 +77,7 @@ namespace Hayaa.RemoteConfigController
         }
         [HttpPost]
         [EnableCors("any")]
+        [Desc("EditApp", "更新App", "根据主键更新数据")]
         public TransactionResult<Boolean> EditApp(App app)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
@@ -89,6 +95,7 @@ namespace Hayaa.RemoteConfigController
         }
         [HttpPost]
         [EnableCors("any")]
+        [Desc("DeleteApp", "删除App", "根据主键删除数据")]
         public TransactionResult<Boolean> DeleteApp(int appId)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
