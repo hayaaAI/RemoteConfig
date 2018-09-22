@@ -5,12 +5,13 @@ import AppFrame from './AppFrame.vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
+import webstore from './webstore'
 
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+webstore.vueRouter=router;
 new Vue({
   el: '#app',
   router,

@@ -1,5 +1,5 @@
 <template>
-    <div style="width: 500px;margin-left: 15%">
+    <div style="width: 650px;margin-left: 15%">
         <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
             <el-form-item label="程序ID" prop="appId">
                 <el-input v-model="ruleForm.appId" style="width: 100px" disabled></el-input>
@@ -11,7 +11,7 @@
                 <el-input v-model="ruleForm.solutionName"></el-input>
             </el-form-item>
             <el-form-item label="解决方案根配置">
-                <el-input type="textarea" :rows="6" v-model="ruleForm.configContent"></el-input>
+                <el-input type="textarea" :rows="14" v-model="ruleForm.configContent"></el-input>
             </el-form-item>
             <!--<el-form-item label="程序配置版本" prop="version">-->
                 <!--<el-input v-model="ruleForm.version" style="width: 100px"></el-input>-->
@@ -26,8 +26,8 @@
 </template>
 
 <script>
-    import httphelper from '../../util/httphelper'
-    import urls from '../../appdata'
+  import httphelper from '@/util/httphelper'
+  import webstore from '@/webstore'
 
     export default {
         name: "AppConfigEdit",
@@ -73,7 +73,7 @@
             },
             get: function(id) {
                 var that = this;
-                httphelper.authedpostform(urls.appConfigGetUrl, {"id": id},
+                httphelper.authedpostform(webstore.urls.appConfigGetUrl, {"id": id},
                     function (data) {
                         that.ruleForm = data;
                     });
@@ -83,14 +83,14 @@
                 this.$refs[formName].validate(function(valid) {
                     if (valid) {
                         if (that.ruleForm.appConfigId == 0) {
-                            httphelper.authedpostform(urls.appConfigAddUrl, that.ruleForm,
+                            httphelper.authedpostform(webstore.urls.appConfigAddUrl, that.ruleForm,
                                 function (data) {
                                     that.ruleForm = data;
                                     that.$notify.success("操作成功");
                                     that.back();
                                 });
                         } else {
-                            httphelper.authedpostform(urls.appConfigEditUrl, that.ruleForm,
+                            httphelper.authedpostform(webstore.urls.appConfigEditUrl, that.ruleForm,
                                 function (data) {
                                     if (data)
                                         that.$notify.success("操作成功");

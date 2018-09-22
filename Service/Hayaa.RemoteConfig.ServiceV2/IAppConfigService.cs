@@ -1,7 +1,6 @@
 ﻿using Hayaa.BaseModel;
 using Hayaa.BaseModel.Service;
-using Hayaa.RemoteConfig.Service;
-using System;
+using Hayaa.RemoteConfig.Service.Model;
 using System.Collections.Generic;
 
 namespace Hayaa.RemoteConfig.Service

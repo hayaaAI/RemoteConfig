@@ -58,8 +58,8 @@
 </template>
 
 <script>
-    import httphelper from '../../util/httphelper'
-    import urls from '../../appdata'
+  import httphelper from '@/util/httphelper'
+  import webstore from '@/webstore'
 
     export default {
         name: "ComponentConfigList",
@@ -79,7 +79,7 @@
         methods: {
             getPager: function(page) {
                 var that = this;
-                httphelper.authedpostform(urls.componentConfigPagerUrl, {"page": page, "size": 10,"componentId":that.componentId},
+                httphelper.authedpostform(webstore.urls.componentConfigPagerUrl, {"page": page, "size": 10,"componentId":that.componentId},
                     function (data) {
                         that.tableData = data.data;
                         that.pagerData.totalPage = data.total / data.pageSize;
@@ -96,11 +96,11 @@
             },
             del: function(id) {
                 var that = this;
-                httphelper.authedpostform(urls.componentConfigDeleteUrl, {"id": id},
+                httphelper.authedpostform(webstore.urls.componentConfigDeleteUrl, {"id": id},
                     function (data) {
                         if(data) {
                             that.$notify.success("操作成功");
-                            that.getPager(1);
+                        that.getPager(1);
                         }
                     });
             }

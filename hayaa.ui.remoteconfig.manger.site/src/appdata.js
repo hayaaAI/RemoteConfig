@@ -1,3 +1,0 @@
-const configUrl="";
-var Urls={};
-

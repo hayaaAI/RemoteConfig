@@ -23,8 +23,8 @@
 </template>
 
 <script>
-    import httphelper from '../../util/httphelper'
-    import urls from '../../appdata'
+  import httphelper from '@/util/httphelper'
+  import webstore from '@/webstore'
 
     export default {
         name: "ComponentConfigEdit",
@@ -64,7 +64,7 @@
             },
             get: function(id) {
                 var that = this;
-                httphelper.authedpostform(urls.componentConfigGetUrl, {"id": id},
+                httphelper.authedpostform(webstore.urls.componentConfigGetUrl, {"id": id},
                     function (data) {
                         that.ruleForm = data;
                     });
@@ -74,12 +74,12 @@
                 this.$refs[formName].validate(function(valid){
                     if (valid) {
                         if (that.ruleForm.componentConfigId == 0) {
-                            httphelper.authedpostform(urls.componentConfigAddUrl, that.ruleForm,
+                            httphelper.authedpostform(webstore.urls.componentConfigAddUrl, that.ruleForm,
                                 function (data) {
                                     that.back();
                                 });
                         } else {
-                            httphelper.authedpostform(urls.componentConfigEditUrl, that.ruleForm,
+                            httphelper.authedpostform(webstore.urls.componentConfigEditUrl, that.ruleForm,
                                 function (data) {
                                     if (data)
                                         that.$notify.success("操作成功");
