@@ -42,8 +42,7 @@
             <el-table-column label="操作">
                 <template slot-scope="scope">
                     <el-button size="mini" @click="edit(scope.row.appConfigId)">编辑</el-button>
-                    <el-button size="mini" @click="editConfig(scope.row.appConfigId)">管理组件配置</el-button>
-                    <el-button size="mini" type="danger" @click="del(scope.row.appConfigId)">删除</el-button>
+                  <el-button size="mini" type="danger" @click="del(scope.row.appConfigId)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -64,12 +63,12 @@
     export default {
         name: "AppConfigList",
         created: function () {
-            //this.appId=this.$route.params.id;
+            this.appId=this.$route.params.id;
             this.getPager(1);
         },
         data: function () {
             return {
-                appId:7,
+                appId:0,
                 pagerData: {
                     totalPage: 0
                 },
@@ -97,12 +96,9 @@
             edit: function(id) {
                 this.$router.push("/home/appconfigedit/" +this.appId+"/"+ id);
             },
-            editConfig: function(id){
-                this.$router.push("/home/appcomponentconfiglist/" +this.appId+"/"+ id);
-            },
             del: function(id) {
                 var that = this;
-                httphelper.authedpostform(urls.appConfigDeleteUrl, {"id": id},
+                httphelper.authedpostform(webstore.urls.appConfigDeleteUrl, {"id": id},
                     function (data) {
                         if(data)
                             that.$notify.success("操作成功");

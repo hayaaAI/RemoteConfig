@@ -10,10 +10,10 @@
             </template>
             <el-menu-item-group>
               <el-menu-item index="1-1">
-                <router-link to="/home/appconfiglist" class="menuitem">App配置管理</router-link>
+                <router-link to="/home/applist" class="menuitem">App配置管理</router-link>
               </el-menu-item>
               <el-menu-item index="1-2">
-                <router-link to="/home/componentconfiglist" class="menuitem">Component配置管理</router-link>
+                <router-link to="/home/componentlist" class="menuitem">Component配置管理</router-link>
               </el-menu-item>
             </el-menu-item-group>
           </el-submenu>

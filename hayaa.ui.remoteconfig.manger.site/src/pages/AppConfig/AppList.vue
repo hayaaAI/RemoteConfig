@@ -1,8 +1,5 @@
 <template>
     <div style="margin-left: 25px">
-        <div style="float: right">
-            <el-button type="primary" @click="add">添加</el-button>
-        </div>
         <el-table :data="tableData">
             <el-table-column
                     label="ID"
@@ -36,9 +33,6 @@
                 <template slot-scope="scope">
                     <el-button size="mini" @click="edit(scope.row.appId)">编辑</el-button>
                     <el-button size="mini" @click="editConfig(scope.row.appId)">配置管理</el-button>
-                    <el-button size="mini" @click="editToken(scope.row.appId)">配置Token</el-button>
-                    <el-button size="mini" @click="createService(scope.row.appId)">生成服务数据</el-button>
-                    <el-button size="mini" @click="editService(scope.row.appId)">配置服务</el-button>
                     <el-button size="mini" type="danger" @click="del(scope.row.appId)">删除</el-button>
                 </template>
             </el-table-column>
@@ -54,8 +48,8 @@
 </template>
 
 <script>
-    import httphelper from '../../util/httphelper'
-    import urls from '../../urlstatic'
+  import httphelper from '@/util/httphelper'
+  import webstore from '@/webstore'
 
     export default {
         name: "AppList",
@@ -73,7 +67,7 @@
         methods: {
             getPager: function(page) {
                 var that = this;
-                httphelper.authedpostform(urls.appPagerUrl, {"page": page, "size": 10},
+                httphelper.authedpostform(webstore.urls.appPagerUrl, {"page": page, "size": 10},
                     function (data) {
                         that.tableData = data.data;
                         that.pagerData.totalPage = data.total / data.pageSize;
@@ -82,31 +76,8 @@
                         }
                     })
             },
-            add: function() {
-                this.$router.push("/home/appedit");
-            },
-            edit: function(id) {
-                this.$router.push("/home/appedit/" + id);
-            },
             editConfig: function(id) {
                 this.$router.push("/home/appconfiglist/" + id);
-            },
-            editToken: function(id) {
-                this.$router.push("/home/apptokenedit/" + id);
-            },
-            createService: function(id) {
-                this.$router.push("/home/scanappservice/" + id);
-            },
-            editService: function(id) {
-                this.$router.push("/home/appservicelist/" + id);
-            },
-            del: function(id) {
-                var that = this;
-                httphelper.authedpostform(urls.appDeleteUrl, {"appId": id},
-                    function (data) {
-                        if(data)
-                        that.$notify.success("操作成功");
-                    });
             }
         }
     }

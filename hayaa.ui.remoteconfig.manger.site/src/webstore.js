@@ -1,9 +1,10 @@
 const evn = "test.";
 var webstore = {
-  configUrl: "http://" + evn + "remoteconfig.xieqj.net/api/Config/SendJsAppConfig",
+  configUrl: "http://"+evn+"remoteconfig.xieqj.net/api/Config/SendJsAppConfig",
   baseUrl: {
     remoteconfig: "http://dev.remoteconfig.xieqj.net:10011/",
-    security: "http://" + evn + "security.xieqj.net/"
+    security: "http://" + evn + "security.xieqj.net/",
+    core: "http://dev.core.xieqj.net:10013/"
   },
   urls: null,
   sessionKey: new Date().getTime(),

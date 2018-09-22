@@ -5,8 +5,8 @@
 </template>
 
 <script>
-  import httphelper from './util/httphelper'
-  import urls from './appdata'
+  import httphelper from '@/util/httphelper'
+  import webstore from '@/webstore'
 
   export default {
     name: "AppFrame",

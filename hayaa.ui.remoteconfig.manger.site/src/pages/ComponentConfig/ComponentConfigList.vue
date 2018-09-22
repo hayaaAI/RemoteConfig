@@ -58,18 +58,18 @@
 </template>
 
 <script>
-    import httphelper from '../../util/httphelper'
-    import urls from '../../appdata'
+  import httphelper from '@/util/httphelper'
+  import webstore from '@/webstore'
 
     export default {
         name: "ComponentConfigList",
         created: function () {
-            //this.componentId=this.$route.params.id;
+            this.componentId=this.$route.params.id;
             this.getPager(1);
         },
         data: function () {
             return {
-                componentId:10013,
+                componentId:0,
                 pagerData: {
                     totalPage: 0
                 },

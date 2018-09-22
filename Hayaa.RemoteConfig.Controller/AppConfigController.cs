@@ -1,7 +1,9 @@
 ﻿using Hayaa.BaseModel;
 using Hayaa.BaseModel.Model;
+using Hayaa.Common;
 using Hayaa.CompanyWebSecurity.Client;
 using Hayaa.RemoteConfig.Service;
+using Hayaa.RemoteConfig.Service.Model;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,22 +21,25 @@ namespace Hayaa.RemoteConfigController
         [HttpPost]
         [EnableCors("any")]
         [Desc("GetPager", "获取AppConfig分页列表", "根据appId获取AppConfig分页列表")]
-        public TransactionResult<GridPager<AppConfig>> GetPager(int page, int size,int appId)
+        public TransactionResult<GridPager<AppConfig>> GetPager([FromForm] int page, [FromForm]  int size, [FromForm] int appId)
         {
-            TransactionResult<GridPager<AppConfig>> result = new TransactionResult<GridPager<AppConfig>>();
-            var serviceResult = AppConfigService.GetPager(new BaseModel.GridPagerPamater<RemoteConfig.Service.AppConfigSearchPamater>()
+            TransactionResult<GridPager<AppConfig>> result = new TransactionResult<GridPager<AppConfig>>(); 
+            var serviceResult = AppConfigService.GetPager(new BaseModel.GridPagerPamater<AppConfigSearchPamater>()
             {
                 Current = page,
                 PageSize = size,
-                SearchPamater = new RemoteConfig.Service.AppConfigSearchPamater() { AppId=appId }
+                SearchPamater = new AppConfigSearchPamater() { AppId=appId }
             });
-            if (serviceResult.ActionResult & serviceResult.HavingData)
+            if (serviceResult.ActionResult )
             {
-                result.Data = serviceResult;
+                if (serviceResult.HavingData)
+                    result.Data = serviceResult;
+                else
+                    result.Data = new GridPager<AppConfig>() { Data=new List<AppConfig>() };
             }
             else
             {
-                result.Code = 103;
+                result.Code = ErrorCode.NoData;
                 result.Message = "暂无数据";
             }
             return result;
@@ -42,7 +47,7 @@ namespace Hayaa.RemoteConfigController
         [HttpPost]
         [EnableCors("any")]
         [Desc("Get", "获取AppConfig", "根据主键获取数据")]
-        public TransactionResult<AppConfig> Get(int id)
+        public TransactionResult<AppConfig> Get([FromForm] int id)
         {
             TransactionResult<AppConfig> result = new TransactionResult<AppConfig>();
             var serviceResult = AppConfigService.Get(id);
@@ -52,7 +57,7 @@ namespace Hayaa.RemoteConfigController
             }
             else
             {
-                result.Code = 103;
+                result.Code = ErrorCode.NoData;
                 result.Message = "暂无数据";
             }
             return result;
@@ -60,7 +65,7 @@ namespace Hayaa.RemoteConfigController
         [HttpPost]
         [EnableCors("any")]
         [Desc("Add", "添加AppConfig", "")]
-        public TransactionResult<AppConfig> Add(AppConfig info)
+        public TransactionResult<AppConfig> Add([FromForm] AppConfig info)
         {
             TransactionResult<AppConfig> result = new TransactionResult<AppConfig>();
 
@@ -72,7 +77,7 @@ namespace Hayaa.RemoteConfigController
             }
             else
             {
-                result.Code = 103;
+                result.Code = ErrorCode.NoData;
                 result.Message = "暂无数据";
             }
             return result;
@@ -80,7 +85,7 @@ namespace Hayaa.RemoteConfigController
         [HttpPost]
         [EnableCors("any")]
         [Desc("Edit", "更新AppConfig", "根据主键更新数据")]
-        public TransactionResult<Boolean> Edit(AppConfig info)
+        public TransactionResult<Boolean> Edit([FromForm] AppConfig info)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
             var serviceResult = AppConfigService.UpdateByID(info);
@@ -90,7 +95,7 @@ namespace Hayaa.RemoteConfigController
             }
             else
             {
-                result.Code = 103;
+                result.Code = ErrorCode.NoData;
                 result.Message = "暂无数据";
             }
             return result;
@@ -98,7 +103,7 @@ namespace Hayaa.RemoteConfigController
         [HttpPost]
         [EnableCors("any")]
         [Desc("Delete", "删除AppConfig", "根据主键删除数据")]
-        public TransactionResult<Boolean> Delete(int id)
+        public TransactionResult<Boolean> Delete([FromForm] int id)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
             var serviceResult = AppConfigService.DeleteByID(new List<int>() { id });
@@ -108,7 +113,7 @@ namespace Hayaa.RemoteConfigController
             }
             else
             {
-                result.Code = 103;
+                result.Code = ErrorCode.NoData;
                 result.Message = "暂无数据";
             }
             return result;
@@ -116,7 +121,7 @@ namespace Hayaa.RemoteConfigController
         [HttpPost]
         [EnableCors("any")]
         [Desc("AddComponentConfig", "添加组件配置", "")]
-        public TransactionResult<Boolean> AddComponentConfig(int appConfigId, int componentConfigId)
+        public TransactionResult<Boolean> AddComponentConfig([FromForm] int appConfigId, [FromForm]  int componentConfigId)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
             var serviceResult = AppConfigService.AddComponentConfigForApp(componentConfigId, appConfigId);
@@ -126,7 +131,7 @@ namespace Hayaa.RemoteConfigController
             }
             else
             {
-                result.Code = 103;
+                result.Code = ErrorCode.NoData;
                 result.Message = serviceResult.ErrorMsg;
             }
             return result;
@@ -134,7 +139,7 @@ namespace Hayaa.RemoteConfigController
         [HttpPost]
         [EnableCors("any")]
         [Desc("RemoveComponentConfig", "移除组件配置", "")]
-        public TransactionResult<Boolean> RemoveComponentConfig(int appConfigId, int componentConfigId)
+        public TransactionResult<Boolean> RemoveComponentConfig([FromForm] int appConfigId, [FromForm]  int componentConfigId)
         {
             TransactionResult<Boolean> result = new TransactionResult<Boolean>();
             var serviceResult = AppConfigService.RemoveComponentConfigForApp(new List<int>() { componentConfigId }, appConfigId);
@@ -144,28 +149,10 @@ namespace Hayaa.RemoteConfigController
             }
             else
             {
-                result.Code = 103;
+                result.Code = ErrorCode.NoData;
                 result.Message = serviceResult.ErrorMsg;
             }
             return result;
-        }
-        [HttpPost]
-        [EnableCors("any")]
-        [Desc("Remove10002ComponentConfig", "服务工厂移除组件配置", "")]
-        public TransactionResult<Boolean> Remove10002ComponentConfig(int appConfigId)
-        {
-            TransactionResult<Boolean> result = new TransactionResult<Boolean>();
-            var serviceResult = AppConfigService.Remove10002ComponentConfig(appConfigId);
-            if (serviceResult.ActionResult && serviceResult.Data)
-            {
-                result.Data = serviceResult.Data;
-            }
-            else
-            {
-                result.Code = 103;
-                result.Message = serviceResult.ErrorMsg;
-            }
-            return result;
-        }
+        }       
     }
 }

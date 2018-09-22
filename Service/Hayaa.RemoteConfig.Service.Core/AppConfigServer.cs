@@ -5,6 +5,7 @@ using Hayaa.DataAccess;
 using Hayaa.BaseModel;
 using Hayaa.RemoteConfig.Service.Dao;
 using Hayaa.RemoteConfig.Service.Config;
+using Hayaa.RemoteConfig.Service.Model;
 
 /// <summary>
 ///代码效率工具生成，此文件不要修改
