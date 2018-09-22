@@ -58,18 +58,18 @@
 </template>
 
 <script>
-    import httphelper from '../../util/httphelper'
-    import urls from '../../appdata'
+  import httphelper from '@/util/httphelper'
+  import webstore from '@/webstore'
 
     export default {
         name: "AppConfigList",
         created: function () {
-            this.appId=this.$route.params.id;
+            //this.appId=this.$route.params.id;
             this.getPager(1);
         },
         data: function () {
             return {
-                appId:0,
+                appId:7,
                 pagerData: {
                     totalPage: 0
                 },
@@ -79,7 +79,7 @@
         methods: {
             getPager: function(page) {
                 var that = this;
-                httphelper.authedpostform(urls.appConfigPagerUrl, {"page": page, "size": 10,"appId":that.appId},
+                httphelper.authedpostform(webstore.urls.appConfigPagerUrl, {"page": page, "size": 10,"appId":that.appId},
                     function (data) {
                         that.tableData = data.data;
                         that.pagerData.totalPage = data.total / data.pageSize;
@@ -106,6 +106,7 @@
                     function (data) {
                         if(data)
                             that.$notify.success("操作成功");
+                      that.getPager(1);
                     });
             }
         }

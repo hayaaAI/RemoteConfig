@@ -14,20 +14,26 @@
       return {}
     },
     created: function () {
-      this.auth()
+      this.loader()
     },
     methods: {
-      auth: function () {
+      loader: function () {
+        //console.log("loader")
         var that = this;
-        that.$router.push("/home");
-        // httphelper.post(urls.authUrl, {}, function (islogin) {
-        //   islogin = true;
-        //   if (islogin) {
-        //     that.$router.push("/home");
-        //   } else {
-        //     that.$router.push("/login");
-        //   }
-        // });
+        httphelper.postform(webstore.configUrl, {
+          "sid": "49afd2de-ac06-4635-b8a5-2681bd23a19b",
+          "v": 1
+        }, function (configData) {
+          webstore.urls = JSON.parse(configData);
+          //console.log(webstore.urls);
+          for (var p in webstore.urls) {
+            for (var a in webstore.baseUrl) {
+              webstore.urls[p] = webstore.urls[p].replace("#"+a+"#", webstore.baseUrl[a]);
+            }
+          }
+          that.$router.push("/home");
+        });
+
       }
     }
   }

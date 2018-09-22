@@ -9,8 +9,7 @@ import AppConfigEdit from '@/pages/AppConfig/AppConfigEdit.vue'
 import AppConfigList from '@/pages/AppConfig/AppConfigList.vue'
 import ComponentConfigList from '@/pages/ComponentConfig/ComponentConfigList.vue'
 import ComponentConfigEdit from '@/pages/ComponentConfig/ComponentConfigEdit.vue'
-import AppComponentConfigList from '@/pages/AppComponentConfig/AppComponentConfigList.vue'
-import AppComponentConfigSet from '@/pages/AppComponentConfig/AppComponentConfigSet.vue'
+
 
 Vue.use(Router)
 
@@ -24,12 +23,10 @@ export default new Router({
       children: [
         {path: "index", component: Index},
         {path: "message", component: Message},
-        {path: "appconfiglist/:id", component: AppConfigList},
+        {path: "appconfiglist/:id?", component: AppConfigList},
         {path: "appconfigedit/:aid/:id?", component: AppConfigEdit},
-        {path: "componentconfiglist/:id", component: ComponentConfigList},
-        {path: "componentconfigedit/:cid/:id?", component: ComponentConfigEdit},
-        {path: "appcomponentconfiglist/:aid/:id", component: AppComponentConfigList},
-        {path: "appcomponentconfigset/:aid/:cid/:afid", component: AppComponentConfigSet}
+        {path: "componentconfiglist/:id?", component: ComponentConfigList},
+        {path: "componentconfigedit/:cid/:id?", component: ComponentConfigEdit}
       ]
     }
   ]

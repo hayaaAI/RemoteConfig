@@ -73,7 +73,7 @@
             },
             get: function(id) {
                 var that = this;
-                httphelper.authedpostform(urls.appConfigGetUrl, {"id": id},
+                httphelper.authedpostform(webstore.urls.appConfigGetUrl, {"id": id},
                     function (data) {
                         that.ruleForm = data;
                     });
@@ -83,14 +83,14 @@
                 this.$refs[formName].validate(function(valid) {
                     if (valid) {
                         if (that.ruleForm.appConfigId == 0) {
-                            httphelper.authedpostform(urls.appConfigAddUrl, that.ruleForm,
+                            httphelper.authedpostform(webstore.urls.appConfigAddUrl, that.ruleForm,
                                 function (data) {
                                     that.ruleForm = data;
                                     that.$notify.success("操作成功");
                                     that.back();
                                 });
                         } else {
-                            httphelper.authedpostform(urls.appConfigEditUrl, that.ruleForm,
+                            httphelper.authedpostform(webstore.urls.appConfigEditUrl, that.ruleForm,
                                 function (data) {
                                     if (data)
                                         that.$notify.success("操作成功");
