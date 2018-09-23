@@ -8,7 +8,6 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>hayaa.remoteconfig.client</artifactId>
     <packaging>jar</packaging>
     <build>
@@ -44,6 +43,11 @@
         <dependency>
             <groupId>hayaaAI</groupId>
             <artifactId>hayaa.rpc.common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>hayaaAI</groupId>
+            <artifactId>hayaa.rpc.client</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
