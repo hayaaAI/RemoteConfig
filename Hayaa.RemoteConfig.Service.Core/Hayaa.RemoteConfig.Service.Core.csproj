@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Seed\Netcore\Hayaa.RemoteConfig.Client\Hayaa.RemoteConfig.Client.csproj" />
+    <ProjectReference Include="..\Hayaa.RemoteConfig.Client\Hayaa.RemoteConfig.Client.csproj" />
     <ProjectReference Include="..\Hayaa.RemoteConfig.ServiceV2\Hayaa.RemoteConfig.ServiceV2.csproj" />
   </ItemGroup>
 
