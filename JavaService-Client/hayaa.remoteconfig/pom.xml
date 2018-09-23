@@ -7,15 +7,18 @@
     <groupId>HayaaAI</groupId>
     <artifactId>hayaa.remoteconfig</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <modules>
         <module>hayaa.remoteconfig.client</module>
         <module>hayaa.remoteconfig.service</module>
     </modules>
-    <packaging>pom</packaging>
     <repositories>
         <repository>
             <id>hayaa-group</id>
             <url>http://nexus.xieqj.net/repository/hayaa-group/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
     <distributionManagement>
