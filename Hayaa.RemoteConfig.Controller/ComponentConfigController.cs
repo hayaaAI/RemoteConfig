@@ -68,9 +68,12 @@ namespace Hayaa.RemoteConfigController
         {
             TransactionResult<List<ComponentConfig>> result = new TransactionResult<List<ComponentConfig>>();
             var serviceResult = ComponentConfigService.GetComponentConfigList(appConfigId, version);
-            if (serviceResult.ActionResult & serviceResult.HavingData)
+            if (serviceResult.ActionResult)
             {
-                result.Data = serviceResult.Data;
+                if (serviceResult.HavingData)
+                    result.Data = serviceResult.Data;
+                else
+                    result.Data = new List<ComponentConfig>();
             }
             else
             {
