@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Service\Hayaa.RemoteConfig.ServiceV2\Hayaa.RemoteConfig.ServiceV2.csproj" />
+    <ProjectReference Include="..\Hayaa.RemoteConfig.ServiceV2\Hayaa.RemoteConfig.ServiceV2.csproj" />
   </ItemGroup>
 
 </Project>
