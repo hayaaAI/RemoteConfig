@@ -5,8 +5,8 @@
         </div>
         <el-table :data="tableData">
             <el-table-column
-                    label="ID"
-                    width="80">
+                    label="组件配置ID"
+                    width="120">
                 <template slot-scope="scope">
                     <span>{{ scope.row.componentConfigId }}</span>
                 </template>

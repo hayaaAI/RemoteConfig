@@ -21,7 +21,7 @@
         //console.log("loader")
         var that = this;
         httphelper.postform(webstore.configUrl, {
-          "sid": "49afd2de-ac06-4635-b8a5-2681bd23a19b",
+          "sid": "8baf31eb-b2df-4ec5-bf00-e4cf757edc92",
           "v": 1
         }, function (configData) {
           webstore.urls = JSON.parse(configData);

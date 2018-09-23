@@ -10,28 +10,27 @@
             </el-table-column>
             <el-table-column
                     label="名称"
-                    width="120">
+                    width="240">
                 <template slot-scope="scope">
                     <span>{{ scope.row.title }}</span>
                 </template>
             </el-table-column>
             <el-table-column
                     label="创建时间"
-                    width="160">
+                    width="180">
                 <template slot-scope="scope">
                     <span>{{ scope.row.createTime }}</span>
                 </template>
             </el-table-column>
             <el-table-column
                     label="更新时间"
-                    width="160">
+                    width="180">
                 <template slot-scope="scope">
                     <span>{{ scope.row.updateTime }}</span>
                 </template>
             </el-table-column>
             <el-table-column label="操作">
                 <template slot-scope="scope">
-                    <el-button size="mini" @click="edit(scope.row.appId)">编辑</el-button>
                     <el-button size="mini" @click="editConfig(scope.row.appId)">配置管理</el-button>
                     <el-button size="mini" type="danger" @click="del(scope.row.appId)">删除</el-button>
                 </template>
