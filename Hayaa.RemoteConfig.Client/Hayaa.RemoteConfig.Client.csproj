@@ -22,4 +22,8 @@
     <PackageReference Include="Hayaa.RPC.Client" Version="1.0.0.19" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hayaa.RemoteConfig.ServiceV2\Hayaa.RemoteConfig.ServiceV2.csproj" />
+  </ItemGroup>
+
 </Project>
