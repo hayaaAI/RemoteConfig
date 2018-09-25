@@ -10,6 +10,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sql", "Sql", "{6D51EAB9-47EF-4F3B-A883-849071822E0D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iteration2", "iteration2", "{382EF09D-72B3-4D29-A37B-F2E316EABC53}"
+	ProjectSection(SolutionItems) = preProject
+		Sql\iteration2\RemoteConfig.sql = Sql\iteration2\RemoteConfig.sql
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{433C8931-E668-42EF-AF25-C06AF79CEA06}"
 EndProject
@@ -25,8 +28,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sites", "Sites", "{FC91EEB3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UISites", "UISites", "{38F16DD8-4E46-4B9A-BD3B-C0735F650939}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.RemoteConfig.ServiceV2", "Hayaa.RemoteConfig.ServiceV2\Hayaa.RemoteConfig.ServiceV2.csproj", "{7DD578B1-BD85-41DF-890F-E2145A3C0440}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.RemoteConfig.Service.Core", "Hayaa.RemoteConfig.Service.Core\Hayaa.RemoteConfig.Service.Core.csproj", "{E5377021-8AD3-4123-AAB7-2966E4A3BC2C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.RemoteConfig.Client", "Hayaa.RemoteConfig.Client\Hayaa.RemoteConfig.Client.csproj", "{C070C042-696A-4F2A-B254-4C7B8CFDAAB1}"
@@ -37,16 +38,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.RemoteConfig.Site", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.RemoteConfig.Controller", "Hayaa.RemoteConfig.Controller\Hayaa.RemoteConfig.Controller.csproj", "{591758BE-A237-4642-9E60-08DEE43FB448}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.RemoteConfig.ServiceV2", "Hayaa.RemoteConfig.ServiceV2\Hayaa.RemoteConfig.ServiceV2.csproj", "{4461439E-1D68-4D4A-AEB4-5C2A347FF19A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7DD578B1-BD85-41DF-890F-E2145A3C0440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7DD578B1-BD85-41DF-890F-E2145A3C0440}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7DD578B1-BD85-41DF-890F-E2145A3C0440}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7DD578B1-BD85-41DF-890F-E2145A3C0440}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E5377021-8AD3-4123-AAB7-2966E4A3BC2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E5377021-8AD3-4123-AAB7-2966E4A3BC2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5377021-8AD3-4123-AAB7-2966E4A3BC2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -67,6 +66,10 @@ Global
 		{591758BE-A237-4642-9E60-08DEE43FB448}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{591758BE-A237-4642-9E60-08DEE43FB448}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{591758BE-A237-4642-9E60-08DEE43FB448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4461439E-1D68-4D4A-AEB4-5C2A347FF19A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4461439E-1D68-4D4A-AEB4-5C2A347FF19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4461439E-1D68-4D4A-AEB4-5C2A347FF19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4461439E-1D68-4D4A-AEB4-5C2A347FF19A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,12 +81,12 @@ Global
 		{6F292DD2-0EEC-4256-97CF-3612C8F24576} = {97305819-FE6E-487F-A7EB-2DB63D30A1C7}
 		{FC91EEB3-DFCE-410A-8E2D-275946DC490F} = {97305819-FE6E-487F-A7EB-2DB63D30A1C7}
 		{38F16DD8-4E46-4B9A-BD3B-C0735F650939} = {97305819-FE6E-487F-A7EB-2DB63D30A1C7}
-		{7DD578B1-BD85-41DF-890F-E2145A3C0440} = {BBCCA435-0047-48AE-BF1C-C7164D9967D4}
 		{E5377021-8AD3-4123-AAB7-2966E4A3BC2C} = {BBCCA435-0047-48AE-BF1C-C7164D9967D4}
 		{C070C042-696A-4F2A-B254-4C7B8CFDAAB1} = {7E63C2D8-436B-47BF-8C6A-AF32D004DB88}
 		{2AFC29F6-6410-4894-879C-0FA92DD8EF6C} = {8ED4AC7D-FA83-414A-8B35-E47FCD9196EC}
 		{90105690-AC80-4E07-8B5B-CC9A3589AE4E} = {FC91EEB3-DFCE-410A-8E2D-275946DC490F}
 		{591758BE-A237-4642-9E60-08DEE43FB448} = {6F292DD2-0EEC-4256-97CF-3612C8F24576}
+		{4461439E-1D68-4D4A-AEB4-5C2A347FF19A} = {BBCCA435-0047-48AE-BF1C-C7164D9967D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {14C67632-5281-4624-ADDF-51E4CF210E1A}
