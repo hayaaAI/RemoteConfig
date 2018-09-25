@@ -42,7 +42,7 @@
         </dependency>
         <dependency>
             <groupId>hayaaAI</groupId>
-            <artifactId>hayaa.rpc.t1</artifactId>
+            <artifactId>hayaa.rpctest</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <!--<dependency>-->
